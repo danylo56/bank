@@ -2,11 +2,11 @@
 {% load widget_tweaks %}
 
 
-{% block title %}Sign Up{% endblock %}
+{% block title %}{{ label }}{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Sign Up</h1>
+    <h1>{{ label }}</h1>
     <hr>
     <div class="row">
         <form method="post" class="col-4">
@@ -21,11 +21,11 @@
             <small style="color: grey">{{field.help_text}}</small>
             {% endif %}
             {% endfor %}
-            <input class="btn btn-lg btn-outline-primary" type="submit" value="Sign Up">
+            <input class="btn btn-lg btn-outline-primary" type="submit" value="{{ label }}">
         </form>
         <div class="col-8 text-center">
             <h2>We're so happy that you have chosen us</h2>
-            <h3 class="text-muted">Bank PL NTUU "KPI"</h3>
+            <h3 class="text-muted">LazhaBank</h3>
         </div>
     </div>
 
