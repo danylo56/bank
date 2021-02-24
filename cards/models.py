@@ -7,6 +7,9 @@ class Card(models.Model):
     balance = models.FloatField()
     bill_number = models.CharField(max_length=10, unique=True)
 
+    def __str__(self):
+        return f'№{self.bill_number} -> ${self.balance}'
+
 
 class Transaction(models.Model):
     from_card = models.ForeignKey(Card, on_delete=models.PROTECT, related_name="transaction_from")

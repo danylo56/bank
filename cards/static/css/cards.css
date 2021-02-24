@@ -1,0 +1,40 @@
+.card__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card__block{
+    display: block;
+    margin: 15px 15px;
+    width: 340px;
+    height: 220px;
+    background-color: lightgray;
+    position: relative;
+    border-radius: 10px;
+}
+
+.card__number {
+    position: absolute;
+    top: 30px;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: white;
+    background: black;
+    letter-spacing: 3px;
+}
+
+.card__balance {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+}
+
+.card__holder {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    text-transform: uppercase;ß
+}
