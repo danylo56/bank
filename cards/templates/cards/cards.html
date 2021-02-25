@@ -6,13 +6,17 @@
 {% block content %}
 <div class="container">
     <div class="card__container">
+        {% if user_cards%}
         {% for card in user_cards %}
         <div class="card__block">
             <span class="card__number">{{ card.bill_number }}</span>
             <span class="card__balance">$ {{ card.balance }}</span>
-            <span class="card__holder">{{ card.holder.username }}</span>
+            <span class="card__holder">{{ card.visa_or_mastercard }}</span>
         </div>
         {% endfor %}
+        {% else %}
+        <h3 class="text-muted">You haven't any cards</h3>
+        {% endif %}
     </div>
 </div>
 

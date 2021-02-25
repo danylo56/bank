@@ -14,6 +14,7 @@ class SignUpView(generic.CreateView):
 class CustomLoginView(LoginView):
     template_name = 'registration/auth_form.html'
     extra_context = {'label': 'Login'}
+    success_url = reverse_lazy('my_cards')
 
 
 class CustomLogoutView(LogoutView):

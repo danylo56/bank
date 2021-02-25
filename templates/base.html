@@ -20,11 +20,13 @@
             {% url 'login' as login %}
             {% url 'sign_up' as sign_up %}
             {% url 'my_cards' as my_cards %}
+            {% url 'create_card' as create_card %}
             <ul class="navbar-nav">
                 {% if user.is_authenticated %}
                 <a class="nav-item nav-link {% if request.path == my_cards %}active{% endif %}"
                    href="{{my_cards}}">Account</a>
-                <a class="nav-item nav-link" href="">New card</a>
+                <a class="nav-item nav-link {% if request.path == create_card %}active{% endif %}"
+                   href="{{create_card}}">New card</a>
                 <a class="nav-item nav-link" href="">Transaction</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}">Log out</a>
 
