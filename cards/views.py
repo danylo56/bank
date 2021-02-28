@@ -1,14 +1,14 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-
 from cards.forms import CardCreationForm
 from cards.models import Card
 from cards.utils import create_bill_number
 
 
-class UserCardListView(generic.ListView):
+class UserCardListView(LoginRequiredMixin, generic.ListView):
     model = Card
     template_name = 'cards/cards.html'
     context_object_name = 'user_cards'
@@ -17,7 +17,7 @@ class UserCardListView(generic.ListView):
         return self.model.objects.filter(holder=self.request.user)
 
 
-class CreateCardView(generic.CreateView):
+class CreateCardView(LoginRequiredMixin, generic.CreateView):
     def get(self, request, *args, **kwargs):
         context = {'form': CardCreationForm()}
         return render(request, 'cards/create.html', context)
@@ -34,3 +34,5 @@ class CreateCardView(generic.CreateView):
             card.save()
             return HttpResponseRedirect(reverse_lazy('my_cards'))
         return render(request, 'cards/create.html', {'form': form})
+
+
